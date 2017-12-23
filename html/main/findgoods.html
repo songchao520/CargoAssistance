@@ -1,0 +1,333 @@
+<!--
+	作者：369126371@qq.com
+	时间：2016-11-04
+	描述：首页
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link href="../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		<style>
+			body{
+				background: url(../../img/hb-bg.jpg);
+				width:100%;
+				height:100%;
+				background-size:cover;
+				font-size: 16px;
+			}
+			.headcount{
+				background-color:rgb(255,114,0)
+			}
+			.diplaynone{
+				display:none;
+			}
+			.headimg{
+				margin-top:3px;
+				margin-left:37%;
+			}
+			.contdiv{
+				width:90%;
+				margin-left:5%;
+				margin-top: 20px;
+				float: left;
+			}
+			.texttitle{
+				border-left: 3px solid #FF7200;
+				height: 16px;
+				line-height: 16px;
+				padding-left: 10px;
+				color: #666;
+			}
+			.contentdiv{
+				border: 1px #eae7ec solid;
+				border-top: 0px;
+				background-color: #FFFFFF;
+			}
+			.hlinediv{
+				height: 50px;
+				width: 100%;
+				float: left;
+				line-height: 50px;
+				background-color: #FFFFFF;
+				z-index: 11;
+			}
+			.leftpic,.rightpic{
+				float: left;
+				height: 100%;
+				width: 15%;
+				
+				z-index: 11;
+			}
+			.rightpic{
+				width: 10%;
+				margin-left: 5%;
+			}
+			.textdiv{
+				float: left;
+				height: 100%;
+				width: 70%;
+			}
+			.leftimg,.rightimg{
+				width: 14px;
+				margin-top: 11px;
+			}
+			.leftimg{
+				
+				position: relative;
+				margin-left: 70%;
+				margin-top: 14px;
+			}
+			.textdiv input{
+				border: 0px;
+			}
+			.rightimg{
+				width: 10px;
+				margin-right: 20%;
+			}
+			.buttondiv{
+				width: 100%;
+				height: 60px;
+				margin: 10% auto;
+				margin-top: 100px;
+				float:left;
+				
+			}
+			.buttonwebs{
+				width: 90%;
+				margin-left: 5%;
+				height: 55px;
+				background-color: rgb(255,144,0);
+				color: #FFFFFF;
+				font-size: 18px;
+				letter-spacing: 5px;
+				border: solid 0px rgb(168,230,254);
+				border-radius: 5px;
+				line-height: 46px;
+			}
+			.vline{
+				position:absolute;
+				background-color: rgb(240,240,240);
+				width: 1px;
+				height: 100px;
+				margin-top: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav diplaynone headcount">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+				<h1 class="mui-title" style="color: #FFFFFF;">货源</h1>
+				<img src="../../img/guanyuhuobang@2x.png" class="headimg"/>
+		</header>
+		<header class="mui-bar mui-bar-nav">
+				<img src="../../img/guanyuhuobang@2x.png" class="headimg"/>
+		</header>
+		<div class="mui-content">
+			<div class="texttitle contdiv">
+				定位地址和目的地
+			</div>
+			<div class="contdiv contentdiv">
+				
+				<div class="hlinediv">
+					<div class="vline">
+					
+					</div>
+					<div class="leftpic">
+						<img src="../../img/didianlvse@2x.png"  class="leftimg" />
+					</div>
+					<div class="textdiv">
+						<input type="text" class="textdivinput" placeholder="输入出发地" id="cfd" />
+					</div>
+					<div class="rightpic">
+						<img src="../../img/fanhuijian_@2x.png"  class="rightimg" id="cfdimg" />
+					</div>
+				</div>
+				<div class="hlinediv">
+					<div class="leftpic">
+						<img src="../../img/didianjuse@2x.png"  class="leftimg" />
+					</div>
+					<div class="textdiv">
+						<input type="text" class="textdivinput" placeholder="输入目的地" id="mdd" />
+					</div>
+					<div class="rightpic">
+						<img src="../../img/fanhuijian_@2x.png"  class="rightimg" id="mddimg" />
+					</div>
+				</div>
+				<div class="hlinediv">
+					<div class="leftpic">
+						<img src="../../img/sj@2x.png"  class="leftimg" />
+					</div>
+					<div class="textdiv">
+						<input type="text" class="textdivinput" placeholder="预约时间" id="yysj" disabled="disabled" />
+					</div>
+					<div class="rightpic">
+						<img src="../../img/fanhuijian_@2x.png"  class="rightimg" id="yysjimg" />
+					</div>
+				</div>
+			</div>
+			
+			<div class="buttondiv">
+				<button class="buttonwebs">找货</button>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../js/mui.min.js" ></script>
+	<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+	<script src="../../js/mui.poppicker.js"></script>
+	<script src="../../js/mui.picker.min.js"></script>
+	<script type="text/javascript" src="../../js/city.data-3.js" ></script>
+	<script>
+		mui.init({
+				
+				swipeBack: false,
+				statusBarBackground: '#f7f7f7',
+				gestureConfig: {  
+					doubletap: true
+				}
+			});
+		
+		 //创建子页面，首个选项卡页面显示，其它均隐藏；
+		mui.plusReady(function() { 
+			setOrederHeight();
+		});	
+		$(function(){
+			var marginleft = $(".leftimg").css("margin-left")
+			var leftpx = parseFloat(marginleft)+7
+			$(".vline").css("margin-left",leftpx+"px")
+			
+			mui(".buttondiv").on("tap",".buttonwebs",function(){
+				if(loginuser.astatusrecid != 3){
+					
+					mui.toast("此账号还未认证")
+					return false;
+				}
+				var cfd = $("#cfd").val();
+				var mdd = $("#mdd").val();
+				var yysj = $("#yysj").val();
+				if(yysj != ""){
+					yysj=yysj+" 00:00:00"
+				}
+				mui.openWindow({
+					url:"../supplyofgoods/supplyOfGoods.html",
+	                id: "supplyOfGoods",
+					styles: {
+						popGesture: "none"
+					},
+					show: {
+						aniShow: "pop-in"
+					},
+					waiting: {
+						autoShow: false
+					},
+					extras:{
+						cfd:cfd,
+						mdd:mdd,
+						yysj:yysj
+					}
+			    });
+			})
+		})
+		function setOrederHeight(){
+			$(function(){
+				var zheight = $(document).outerHeight();
+				var cheight = zheight-90;
+				var ordershow = plus.webview.getWebviewById('ordershow.html');
+				ordershow.evalJS("setheight('"+cheight+"');") 
+			})
+			
+		}
+		;(function($, doc) {
+				$.init();
+				$.ready(function() {
+
+					var cityPicker = new $.PopPicker({ 
+						layer: 3
+					});
+					cityPicker.setData(cityData3); 
+					var showCityPickerButton = doc.getElementById('cfdimg');
+					var cityResult = doc.getElementById('cfd');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							if(items[0].value =="000000"){
+								cityResult.value = items[0].text;
+							}else{
+								cityResult.value = items[0].text +items[1].text+items[2].text;
+							}
+							
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+					var mddCityPickerButton = doc.getElementById('mddimg');
+					var mddResult = doc.getElementById('mdd');
+					mddCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							if(items[0].value =="000000"){
+								mddResult.value = items[0].text;
+							}else{
+								mddResult.value = items[0].text +items[1].text+items[2].text;
+							}
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false); 
+					
+					doc.getElementById("yysjimg").addEventListener('tap', function() {
+						var objs = [];
+						var obj = new Object();
+						obj["text"] = "不限";
+						obj["value"] = "";
+						objs.push(obj);
+						for(var i=0;i<7;i++){
+							var obj = new Object();
+							var datess = new Date();
+							datess.setTime(datess.getTime()+24*60*60*i*1000);
+							if(i==0){
+								obj["text"] = "今天";
+							}else if(i==1){
+								obj["text"] = "明天";
+							}else if(i==2){
+								obj["text"] = "后天";
+							}else{
+								obj["text"] = formatTime(datess);
+							}
+							
+							obj["value"] = formatTime(datess);
+							objs.push(obj);
+						}
+						
+						var yyycPicker = new $.PopPicker({ 
+							layer: 1
+						});
+						yyycPicker.setData(objs);
+						yyycPicker.show(function(rs) {
+
+							doc.getElementById("yysj").value =  rs[0].value;
+
+							yyycPicker.dispose();
+						});
+					}, false);
+				});
+			})(mui, document);
+			//格式化时间
+			function formatTime(_time){
+			    var year = _time.getFullYear();
+			    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
+			    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
+			    return year+"-"+month+"-"+day;
+			}
+	</script>
+</html>

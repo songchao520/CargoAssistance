@@ -1,0 +1,714 @@
+<!--
+	作者：宋超
+	时间：2017-09-22
+	描述：注册：个人信息页
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title></title>
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link rel="stylesheet" href="../../css/jquery.step.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link href="../../css/mui.picker.min.css" rel="stylesheet" />
+		<link href="../../css/mui.poppicker.css" rel="stylesheet" />
+		
+		
+	</head>
+	<style>
+		body{
+			background-color: rgb(238,238,238);
+			font-size: 14px;
+			color: #999;
+		}
+		.headcount{
+			background-color: rgb(255,114,0);
+		}
+		.contdiv{
+			float: left;
+			width: 100%;
+			margin-top: 10px;
+			font-size: 14px;
+			background-color: #FFFFFF;
+		}
+		.contdivstpe{
+			padding: 10px;
+		}
+		.buttondiv{
+			width: 100%;
+			height: 60px;
+			margin: 10% auto;
+			margin-top: 50px;
+		}
+		#sucessti{
+			margin: 0px auto;
+			margin-top: 10px;
+			float: left;
+		}
+		.buttonwebs{
+			width: 96%;
+			margin-left: 2%;
+			height: 50px;
+			background-color: rgb(255,144,0);
+			color: #FFFFFF;
+			font-size: 18px;
+			letter-spacing: 5px;
+			border: solid 0px rgb(168,230,254);
+			border-radius: 5px;
+			line-height: 41px;
+			margin-top: 50px;
+		}
+		#sucessti .buttonwebs{
+			margin-top: 0px;
+		}
+		.inputdiv{
+			width: 100%;
+			height: 50px;
+			
+		}
+		.inputdiv input{
+			height: 50px;
+			background-color: white!important;
+			border: 0px; 
+			font-size: 14px;
+		}
+		.registerinput,.firsttime,.location{
+			width: 96%;
+			margin-left: 2%;
+			
+		}
+		.selectshow{
+			float: left;
+			height: 50px;
+			line-height: 50px;
+			width: 50%;
+		}
+		.selectshowleft{
+			text-indent: 1.2em;
+		}
+		.selectshowright{
+			text-align: right; 
+		}
+		.jiangex{
+			height: 1px;
+			background-color: white;
+			width: 100%;
+		}
+		.jiangex div{
+			height: 100%;
+			width: 96%;
+			margin-left: 2%;
+			background-color: #DCDCDC;
+		}
+		.stepshow{
+			display: none;
+		}
+		.hlinediv{
+			height: 10px;
+			width: 100%;
+			float: left;
+		}
+		.picdiv{
+			background-color: #FFFFFF;
+			float: left;
+			width: 100%;
+			padding-top: 25px;
+			padding-bottom: 25px;
+		}
+		.vlinepic{
+			float: left;
+			width: 100%;
+			
+		}
+		.addpic{
+			height: 70px;
+			width: 30%;
+			margin-left:15% ;
+			float: left;
+			text-align: center;
+			line-height: 70px;
+			font-size: 28px;
+			border:1px dashed #CCCCCC;
+		}
+		.addtext{
+			margin-top: 5px;
+			height: 16px;
+			font-size: 14px;
+			float: left;
+			text-align: center;
+			line-height: 16px;
+			color: #CCCCCC;
+			margin-left:15% ;
+			width: 30%;
+		}
+		.addpic:nth-child(2),.addtext:nth-child(2){
+			margin-left:10% ;
+		}
+		.sucessti{
+			display: none;
+		}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav headcount">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;">
+			</a>
+			<h1 class="mui-title" style="color: #FFFFFF;">认证</h1>
+		</header>
+		<div class="mui-content">
+			<div class="contdiv contdivstpe">
+				<div id="step"></div>
+			</div>
+			<div class="stepshow" indexs="0">
+				<div class="contdiv">
+					<div class="inputdiv mui-input-row inputdivone">
+						<input type="text" id="username" placeholder="请输入您的真实姓名" class="mui-input-clear registerinput" value="宋超">
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<input type="text" id="idcord" placeholder="请输入您的身份证号" class="mui-input-clear registerinput" value="307">
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<div class="firsttime " id="firsttime">
+							<div class="timetitle selectshow selectshowleft">
+								初次领取驾照时间
+							</div>
+							<div class="timeselect selectshow selectshowright" id="timeselect">
+								2015-01-05
+							</div>
+						</div>
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<div class="location" id="location">
+							<div class="locationtitle selectshow selectshowleft">
+								所在地
+							</div>
+							<div class="locationselect selectshow selectshowright" id="locationselect">
+								北京
+							</div>
+						</div>
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="stepshow" indexs="1">
+				<div class="contdiv">
+					<div class="inputdiv mui-input-row inputdivone">
+						<input type="text" id="platenumber" placeholder="请输入您的车牌号" class="mui-input-clear registerinput" value="鲁B123456" >
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<input type="text" id="owner" placeholder="请输入车辆所有人姓名" class="mui-input-clear registerinput" value="宋超">
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<div class="firsttime" id="registertime">
+							<div class="timetitle selectshow selectshowleft">
+								车辆注册日期
+							</div>
+							<div class="timeselect selectshow selectshowright" id="registertimeselect">
+								2015-01-05
+							</div>
+						</div>
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+					<div class="inputdiv mui-input-row inputdivtwo" >
+						<div class="location" id="carmodels">
+							<div class="locationtitle selectshow selectshowleft">
+								车型
+							</div>
+							<div class="locationselect selectshow selectshowright" id="carmodelsselect" recid="1">
+								吊车
+							</div>
+						</div>
+					</div>
+					<div class="jiangex">
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="stepshow" indexs="2">
+				<div class="hlinediv"></div>
+				<div class="picdiv">
+					<div class="vlinepic">
+						<div class="addpic">
+							+
+						</div>
+						<div class="addpic">
+							+
+						</div>
+					</div>
+					<div class="vlinepic">
+						<div class="addtext">
+							身份证照片
+						</div>
+						<div class="addtext">
+							手持身份证照片
+						</div>
+					</div>
+				</div>
+				<div class="picdiv">
+					<div class="vlinepic">
+						<div class="addpic">
+							+
+						</div>
+						<div class="addpic">
+							+
+						</div>
+					</div>
+					<div class="vlinepic">
+						<div class="addtext">
+							驾驶证照片
+						</div>
+						<div class="addtext">
+							行驶证照片
+						</div>
+					</div>
+				</div>
+				<div class="picdiv">
+					<div class="vlinepic">
+						<div class="addpic">
+							+
+						</div>
+						
+					</div>
+					<div class="vlinepic">
+						<div class="addtext">
+							车辆45°角侧面照片
+						</div>
+						
+					</div>
+				</div>
+				<div class="picdiv">
+					<div class="buttondiv" id="sucessti">
+						<button class="buttonwebs">确认提交</button>
+					</div>
+				</div>
+			</div>
+			<div class="buttondiv" id="nextbutton">
+				<button class="buttonwebs">下一步</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="../../js/jquery.step.min.js" ></script>
+		<script type="text/javascript" src="../../js/mui.min.js" ></script>
+		<script src="../../js/mui.poppicker.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="../../js/city.data.js" ></script>
+		<script>
+			var steps = $("#step");	
+			mui.init({
+				beforeback: function(){
+					var indexs = steps.getIndex();
+					if(indexs == 0){
+						return true;
+					}else{
+						steps.prevStep();
+						var indexs = steps.getIndex();
+						if(indexs != 2){
+							$("#nextbutton").show();
+							$("#sucessti").hide();
+						}
+						$(".stepshow").each(function(index){
+							if(index == indexs){
+								$(this).fadeIn();
+							}else{
+								$(this).hide();
+							}
+							
+						});
+						return false;
+					}
+				}
+			});
+			
+			mui.plusReady(function() {
+				document.getElementById("timeselect").innerText = formatTime(new Date()); 
+				document.getElementById("registertimeselect").innerText = formatTime(new Date()); 
+			})
+			
+			
+
+			$(function(){
+				
+				steps.step({
+					index: 0,
+					time: 500,
+					title: ["个人信息", "车辆信息","证件信息"]
+				});
+				$(".stepshow").eq(0).show();
+				
+				mui("#nextbutton").on("tap",".buttonwebs",function(){
+					var $this = $(this);
+					
+					var indexs = steps.getIndex();
+					if(indexs == 0){
+						var username = $("#username").val();
+						var idnumber = $("#idcord").val();
+						if(username.trim() == ""){
+							mui.toast("请填写真实姓名");
+							return false;
+						}else if(idnumber.trim() == ""){
+							mui.toast("请填写身份证号码");
+							return false;
+						}
+					}else if(indexs == 1){
+						var platenumber = $("#platenumber").val();
+						var owner = $("#owner").val();
+						if(platenumber.trim() == ""){
+							mui.toast("请输入车牌号");
+							return false;
+						}else if(owner.trim() == ""){
+							mui.toast("请输入所有人姓名");
+							return false;
+						}
+						$("#nextbutton").hide();
+						$("#sucessti").show();
+						var recid = $("#carmodelsselect").attr("recid");
+						//alert(recid);
+					}
+					steps.nextStep();
+					$(".stepshow").each(function(index){
+						if(index-1 == indexs){
+							$(this).fadeIn();
+						}else{
+							$(this).hide();
+						}
+						
+					});
+				})
+				
+				mui("#sucessti").on("tap",".buttonwebs",function(){
+					var flag = true;
+					$(".addpic").each(function(index){
+						var html = $(this).html();
+						if(html.indexOf("img")==-1){
+							var addtext = $(".addtext").eq(index).text().trim();
+							mui.toast("请选择"+addtext)
+							flag = false;
+							return false;
+						}
+						var imgsrc = $(this).children("img")[0].src;
+					
+						//compressImages(imgsrc);
+					})
+					
+					if(!flag){
+						return false;
+					}
+					var username = $("#username").val();
+					var idnumber = $("#idcord").val();
+					var platenumber = $("#platenumber").val();
+					var owner = $("#owner").val();
+					var timeselect = $("#timeselect").text().trim();					
+					var locationselect = $("#locationselect").text().trim();
+					var registertimeselect = $("#registertimeselect").text().trim();
+					var carmodelsselect = $("#carmodelsselect").attr("recid");
+					mui.ajax({
+						
+						url: allurl+"/SaveTruckSheet",
+						data:{
+								loginId:huobang_loginId,
+								ttyperecid:carmodelsselect,
+								driverrecid:loginuser["recid"],
+								createtime:formatTimes(new Date()),
+								platenumber:platenumber,
+								owner:owner,
+								status:1,
+								registrationdate:registertimeselect
+							},
+						type: "post",
+						 
+						success: function(data) {
+							if(data != "wdl"){
+								mui.ajax({
+						
+									url: allurl+"/UpdateDrivers",
+									data:{
+											loginId:huobang_loginId,
+											recid:loginuser["recid"],
+											uname:username,
+											astatusrecid:2,
+											fisttime:timeselect,
+											idnumber:idnumber
+										},
+									type: "post",
+									 
+									success: function(data) {
+										if(data != "wdl"){
+											
+											$(".addpic").each(function(index){
+												var html = $(this).html();
+												var addtext = $(".addtext").eq(index).text().trim();
+												plus.nativeUI.showWaiting();
+												var imgsrc = $(this).children("img")[0].src;
+												compressImages(imgsrc,index,addtext);
+											})
+											
+										}else{
+											
+											mui.toast("此账号在其他地点登录"); 
+										}
+									},
+									error: function(xhr, type, errorThrown) { 
+										mui.toast("网络及其他原因");
+										
+										console.log(errorThrown);
+									}
+								
+								})
+							}else{
+								
+								mui.toast("此账号在其他地点登录"); 
+							}
+						},
+						error: function(xhr, type, errorThrown) { 
+							mui.toast("网络及其他原因");
+							
+							console.log(errorThrown);
+						}
+					
+					})
+					
+					
+
+				});
+				
+				$(".addpic").click(function(){
+					var jqobj = $(this);
+					scanPicture(jqobj); 
+				});
+			});
+			function scanPicture(jqobj) {
+			    plus.gallery.pick(function(path){
+				 	successImg(path,jqobj);
+			    },function(err){
+			        //plus.nativeUI.alert("Failed: "+err.message);
+			    });
+			};
+			
+			function successImg(p,jqobj){
+				$(function(){
+					jqobj.html('<img src="'+p+'" class="imgtodiv" style="width:100%;height:100%" />');
+					//UploadFile(p);
+					//paths.push(p);
+				});
+			};
+			
+			
+			function compressImages(path,index,addtext){
+				
+				var files=null;
+			 	var img = new Image();
+		        img.src = path;        // 传过来的图片路径在这里用。
+		        img.onload = function () {
+		            var that = this;
+		            //生成比例 
+		            var w = that.width,
+		                h = that.height,
+		                scale = w / h; 
+		                w = 680 || w;              //480  你想压缩到多大，改这里
+		                h = w / scale;
+		
+		            //生成canvas
+		            var canvas = document.createElement('canvas');
+		
+		            var ctx = canvas.getContext('2d');
+		
+		            $(canvas).attr({width : w, height : h});
+		
+		            ctx.drawImage(that, 0, 0, w, h);
+		
+		            var base64 = canvas.toDataURL('image/jpg', 1);   //1最清晰，越低越模糊。弹出 base64 开头的一段 data：image/png;却是png。
+		//              alert(base64);      
+		
+		           	files =base64;   // 把base64数据丢过去，上传要用。
+		           	
+		           	uploadImages(files,index,addtext);
+			    }
+		        
+			        
+			
+			}
+			function uploadImages(files,index,addtext){
+				var driverrecid = loginuser["recid"];
+				var datas = files.substring(22);
+				
+				mui.ajax({
+						
+					url: allurl+"/UploadImages",
+					data:{
+							loginId:huobang_loginId,
+							images:datas,
+							recid:driverrecid,
+							index:index
+						},
+					type: "post",
+					 
+					success: function(data) {
+						
+						if(data == "success"){
+							if(index == 4){
+								plus.nativeUI.closeWaiting();
+							}
+						}else if(data == "wdl"){
+							alertLoginMsg();
+							plus.nativeUI.closeWaiting();
+						}else{
+							mui.toast("网络错误")
+							plus.nativeUI.closeWaiting();
+						}
+						
+					},
+					error: function(xhr, type, errorThrown) { 
+						mui.toast("网络及其他原因");
+						
+						console.log(errorThrown);
+					}
+				
+				})
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			;(function($, doc) {
+				$.init();
+				$.ready(function() {
+
+					var cityPicker = new $.PopPicker({ 
+						layer: 2
+					});
+					cityPicker.setData(cityData);
+					var showCityPickerButton = doc.getElementById('location');
+					var cityResult = doc.getElementById('locationselect');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker.show(function(items) {
+							cityResult.innerText = items[0].text +items[1].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+					doc.getElementById("firsttime").addEventListener('tap', function() {
+						var dates = new Date();
+						var year = dates.getFullYear();
+						var optionsJson = '{"type":"date","beginYear":1970,"endYear":'+year+'}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+
+							doc.getElementById("timeselect").innerText =  rs.text;
+
+							picker.dispose();
+						});
+					}, false);
+					
+					doc.getElementById("registertime").addEventListener('tap', function() {
+						var dates = new Date();
+						var year = dates.getFullYear();
+						var optionsJson = '{"type":"date","beginYear":1970,"endYear":'+year+'}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+
+							doc.getElementById("registertimeselect").innerText =  rs.text;
+
+							picker.dispose();
+						});
+					}, false);
+					var carmodalsPicker = new $.PopPicker();
+					mui.ajax({
+						
+						url: allurl+"/getTruckType",
+						data:{
+								loginId:huobang_loginId,
+							},
+						type: "post",
+						 
+						success: function(data) {
+							if(data != "wdl"){
+								var objs = [];
+								for(var i=0;i<data.length;i++){
+									var obj = new Object();
+									obj["value"] = data[i].recid;
+									obj["text"] = data[i].tname;
+									objs.push(obj);
+								}
+								
+								carmodalsPicker.setData(objs);
+								var carmodels = doc.getElementById('carmodels');
+								var carmodelsselect = doc.getElementById('carmodelsselect');
+								carmodels.addEventListener('tap', function(event) {
+									carmodalsPicker.show(function(items) {
+										carmodelsselect.innerText = items[0].text;
+										carmodelsselect.setAttribute("recid",items[0].value);
+										//返回 false 可以阻止选择框的关闭
+										//return false;
+									});
+								}, false);
+							}else{
+								
+								mui.toast("此账号在其他地点登录"); 
+							}
+						},
+						error: function(xhr, type, errorThrown) { 
+							mui.toast("网络及其他原因");
+							
+							console.log(errorThrown);
+						}
+					
+					})
+					
+				});
+			})(mui, document);
+			
+			//格式化时间
+			function formatTime(_time){
+				var year = _time.getFullYear();
+			    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
+			    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
+			    return year+"-"+month+"-"+day;
+			}
+			function formatTimes(_time){
+				var year = _time.getFullYear();
+			    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
+			    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
+			    var hour = _time.getHours()<10 ? "0"+_time.getHours() : _time.getHours();
+			    var minute = _time.getMinutes()<10 ? "0"+_time.getMinutes() : _time.getMinutes();
+			    var miao = _time.getSeconds()<10 ? "0"+_time.getSeconds() : _time.getSeconds();
+			    return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+miao;
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<!--
+	作者：369126371@qq.com
+	时间：2017-09-25
+	描述：我的业绩
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>我的</title>
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			body
+			{
+				background: url(../../img/hb-bg.jpg);
+				width:100%;
+				height:100%;
+				background-size:cover;
+				font-size: 14px;
+				
+			}
+
+			.headcount{
+				background-color:rgb(255,114,0)
+			} 
+			.balance{
+				float: left;
+				width: 90%;
+				margin-left: 5%;
+				background-color: #FFFFFF;
+				border: 1px solid #CCCCCC;
+				margin-top: 5px;
+				padding: 15px 12px;
+				color: #999;
+				text-align: center;
+			}
+			.pingfen{
+				color: #FF7200;
+				font-size: 40px;
+				font-weight: 600;
+			}
+			.leftdiv,.rightdiv{
+				width: 50%;
+				float: left;
+			}
+			.leftdiv{
+				
+				border-right: 1px solid #EAE7EC;
+			}
+			.leftdivspan{
+				color: #FF7200;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav headcount">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left diplaynone" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+				<h1 class="mui-title" style="color: #FFFFFF;">我的业绩</h1>
+				
+		</header>
+		<div class="contentdiv mui-content">
+			<div class="balance">
+				评价分<br /><br />
+				<span class="pingfen sumscore">5.0</span><br />
+				服务越好，评价越好<br />
+				<br />
+				<hr style="width: 90%;background-color: #EAE7EC;border: 0px;height: 1px;" />
+				<div class="hline">
+					<div class="leftdiv">
+						<span class="leftdivspan sumcount">0</span>
+						<div>完成订单数</div>
+					</div class="rightdiv">	
+					<div>
+						<span  class="leftdivspan sumprice">0.00</span>
+						<div>订单总收入</div>
+					</div>	
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				swipeBack: false,
+				statusBarBackground: '#f7f7f7',
+				gestureConfig: {  
+					doubletap: true
+				}
+			});
+			mui.plusReady(function() {
+				setOrderHtml(3);
+			});
+			function setOrderHtml(orderstatus){ 
+				
+				$.post(allurl+"/getOrderCount",{loginId:huobang_loginId,orderstatus:orderstatus,driverrecid:loginuser["recid"]},function(sumcount){
+					if(sumcount != "wdl"){
+						$(".sumcount").text(sumcount);
+						$.post(allurl+"/getSumValue",{loginId:huobang_loginId,orderstatus:orderstatus,driverrecid:loginuser["recid"],ziduan:"actualprice"},function(sumprice){
+							if(sumprice != "wdl"){
+								if(sumprice != ""){
+									$(".sumprice").text(sumprice.toFixed(2));
+								}else{
+									$(".sumprice").text(0);
+								}
+								
+							}else{
+								alertLoginMsg()
+								
+							}
+						}) 
+						$.post(allurl+"/getSumValue",{loginId:huobang_loginId,orderstatus:orderstatus,driverrecid:loginuser["recid"],ziduan:"orderscoring"},function(sumscore){
+							if(sumscore != "wdl"){
+								$(".sumscore").text((sumscore/sumcount).toFixed(2));
+							}else{
+								alertLoginMsg()
+								
+							}
+						})
+					}else{
+						alertLoginMsg()
+						
+					}
+				})
+			
+		
+		
+			}
+			
+		</script>
+	</body>
+
+</html>

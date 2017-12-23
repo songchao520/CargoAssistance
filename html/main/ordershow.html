@@ -1,0 +1,597 @@
+<!--
+	作者：369126371@qq.com
+	时间：2016-11-04
+	描述：首页
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title></title>
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link rel="stylesheet" href="../../iconfont/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<style>
+			body{
+				background: url(../../img/hb-bg.jpg);
+				width:100%;
+				height:100%;
+				background-size:cover;
+				
+			}
+			.headcount{
+				background-color:rgb(255,114,0)
+			} 
+			.diplaynone{
+				display:none;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar{
+				background-color: rgb(255,114,0);
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+				color: rgb(255,114,0);
+			}
+			.mui-slider-item{
+				height: 100%;
+			}
+
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item{
+				border-bottom: 0px;	
+			}
+			.mui-content{
+				background:none;
+				overflow: hidden;
+				
+			}
+			.orderdiv{
+				float: left;
+				width: 90%;
+				margin-left: 5%;
+				background-color: #FFFFFF;
+				border: 1px solid rgb(220,220,220);
+				margin-top: 10px;
+				font-size: 16px;
+			}			
+			.hlinediv{
+				float: left;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+			}
+			.leftpic{
+				float: left; 
+				height: 100%;
+				width: 10%;
+				
+			}
+			.leftpic .mui-icon{
+				font-size: 18px;
+				padding-left: 10px;
+				color: #40AFFE;
+			}
+			.topdiv .leftpic{
+				color: #FF7200;
+			}
+			.rightpic{
+				float: left;
+				height: 100%;
+				width: 30%;
+				text-align: right;
+				color: #999;
+			}
+			.picspan{
+				float: right;
+				padding-top: 2px;
+			}
+			.textdiv{
+				color: #666;
+				float: left;
+				height: 100%;
+				width: 60%;
+			}
+			.middledivtop{
+				float: left;
+				width: 100%;
+				height: 16px;
+				margin-top: -5px;
+				
+			}
+			.middledivtoppic{
+				float: left;
+				width: 10%;
+				color: orangered;
+				text-align: center;
+			}
+			.middledivtoppic .mui-icon{
+				font-size: 18px;
+				font-weight: 700;
+			}
+			.middledivtoptext{
+				float: left;
+				width: 60%;
+				display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+			}
+			.middledivtext{
+				float: left;
+				width: 60%;
+				margin-top: 0px;
+				height: 30px;
+				margin-left: 10%;
+				font-size: 14px;
+				color: #CCCCCC;
+				display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+			}
+			.footdiv .middledivtop .middledivtoppic{			
+				color: #008000;
+			}
+			#haveinhand .rightpic{
+				color:#FF7200
+			}
+			.middledivtext .textdivfoot{
+				float: right;
+			}
+			.viewdetails{
+				float: left;
+				width: 95%;
+				margin-left: 2.5%;
+				background-color: #FFFFFF;
+				display: none;
+				
+			}
+			.detailsleft{
+				float: left;
+				width: 40%;
+				padding: 10px;
+			}
+			.detailsright{
+				float: left;
+				width: 60%;
+			}
+			.leftoneimg{
+				width: 80px;
+				border-radius: 50%;
+				background: url(../../img/dlym.jpg);
+				height: 80px;
+				background-size:cover;
+			}
+			.lefttwo{
+				font-size: 12px;
+				
+			}
+			.detailsright div{
+				height: 40px;
+				line-height: 40px;
+			}
+			.rmbspan{
+				color:#FF7200;
+				font-weight: 500;
+			}
+			.phonespan{
+				color: #FF7200;
+			}
+			.trianglediv{
+				float: left;
+				width: 100%;
+				display: none;
+			}
+			.triangle-downs {
+			    width: 0;
+			    height: 0;
+			    border-left:  28px solid transparent;
+			    border-right:  3px solid transparent;
+			    border-bottom: 16px solid #FFFFFF;
+			    margin-left: 80%;
+			   
+			}
+			.ckmxdiv{
+				color: #CCCCCC;
+				font-size: 13px;
+				text-align: right;
+			}
+		/*	.successtoorder,.startplace{
+				position: relative;
+				width: 80%;
+				margin-left: 5%;
+				text-align: center;
+				border-radius: 10px;
+				padding: 2px;
+				height: 30px;
+				line-height: 30px;
+				color: white;
+				margin-top: 2px;
+				background-color: #FF7200;
+			}
+			.startplace{
+				background-color: #FF5053; 
+			}
+			.successtoorder{
+				background-color: #FF7200;
+			}*/
+			.startplace,.successtoorder{
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav headcount">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left diplaynone" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+				<h1 class="mui-title" style="color: #FFFFFF;">订单</h1>
+				
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#haveinhand">
+						进行中
+					</a>
+					<a class="mui-control-item" href="#completed">
+						已完成
+					</a>
+					<a class="mui-control-item" href="#canceled">
+						已取消
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group" id="sliderdiv">
+					<div id="haveinhand" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								
+							</div>
+						</div>
+					</div>
+					<div id="completed" class="mui-slider-item mui-control-content">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll" id="mui-scroll2">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div id="canceled" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="mui-loading">
+									<div class="mui-spinner">
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		
+		<div id="locationtexts" style="display: none;">
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js/mui.min.js" ></script>
+	<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+	<script type="text/javascript" src="../../js/mui.pullToRefresh.js" ></script>
+	<script type="text/javascript" src="../../js/mui.pullToRefresh.material.js" ></script>
+	<script>
+		var currpage = 1;
+		var havePage = true;
+		mui.init({
+			swipeBack: false,
+			statusBarBackground: '#f7f7f7',
+			gestureConfig: {  
+				doubletap: true
+			}
+		});
+
+		
+		 //创建子页面，首个选项卡页面显示，其它均隐藏；
+		mui.plusReady(function() { 
+			getGeocode();
+			setOrderShowHtml("#scroll1",2,1000,1);
+		});	
+		var sheight = null;
+		if(sheight == null){
+			var zheight = $(document).outerHeight();
+			var cheight = zheight-90;
+			setheight(cheight)
+		}
+		function setheight(cheight){
+			$(function(){
+				sheight = cheight;
+				$(".mui-control-content").css("min-height",cheight+"px"); 
+				
+			});
+		};
+		function setOrderShowHtml(thisid,orderstatus,pagesize,thiscurrpage){
+			$.post(allurl+"/getOrders",{loginId:huobang_loginId,orderstatus:orderstatus,driverrecid:loginuser["recid"],pagesize:pagesize,currpage:thiscurrpage},function(data){
+				if(data != "wdl"){
+					if(data.length > 0){
+						//console.log(data.length)
+						var showHtml = "";
+						for(var i=0;i<data.length;i++){
+							//console.log(JSON.stringify(data[i]));
+							var riqi = "";
+							if(orderstatus != 3){
+								riqi = data[i]["appointmenttime"];
+							}else{
+								riqi = data[i]["endtime"];
+							}
+							var jiag = "";
+							if(orderstatus == 3){
+								jiag = data[i]["actualprice"];
+							}else{
+								jiag = data[i]["bargaining"];
+							}
+							var buttonhtm="";
+							if(orderstatus == 2){
+								//buttonhtm = '<div class="startplace" recid="'+data[i]["recid"]+'">起始地</div><div class="successtoorder" recid="'+data[i]["recid"]+'">目的地</div>';							
+							} 
+							showHtml =showHtml+ '<div class="orderdiv"><div class="hlinediv topdiv"><div class="leftpic"><span class="mui-icon iconfont icon-time"></span></div><div class="textdiv"><span>'+riqi+'</span></div><div class="rightpic">'+data[i]["statusname"]+'<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div>'+buttonhtm+'</div></div><div class="hlinediv middlediv"><div class="middledivtop " ><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext startplace" recid="'+data[i]["recid"]+'">'+data[i]["startingplace"]+'</div></div><div class="middledivtext">'+data[i]["startingplace"]+'</div></div><div class="hlinediv footdiv"><div class="middledivtop"><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext successtoorder"  recid="'+data[i]["recid"]+'">'+data[i]["endplace"]+'</div></div><div class="middledivtext">'+data[i]["endplace"]+'</div><div class="textdivfoot ckmxdiv">查看明细<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div></div></div></div><div class="trianglediv"><div class="triangle-downs"></div></div><div class="viewdetails"><div class="detailsleft"><div class="leftone"><div class="leftoneimg"></div></div><div class="lefttwo">'+data[i]["username"]+'（货主）</div></div><div class="detailsright"><div class="rightone">'+data[i]["goodsname"]+'/'+data[i]["goodsnumber"]+'</div><div class="righttwo">价格：￥<span class="rmbspan">'+jiag+'</span>元</div><div class="rightthere"><span class="mui-icon mui-icon-phone phonespan"></span>'+data[i]["userphone"]+'</div></div></div>';
+						}
+						if(orderstatus != 3){
+							$(thisid).find(".mui-scroll").html(showHtml); 
+						}else{
+							$(thisid).find(".mui-scroll").append(showHtml); 
+						}
+						 
+						if(data.length<pagesize){
+							havePage = false;
+						}else{
+							havePage = true;
+							
+						} 
+					}else{ 
+						$(thisid).find(".mui-scroll").append("");  
+					}
+				}else{
+					alertLoginMsg()
+					
+				}
+			})
+			
+		
+		}
+		$(function(){
+			//查询地图路线
+			mui(".mui-content").on("tap",".successtoorder",function(){
+				
+				var recid = $(this).attr("recid");
+				
+				$.post(allurl+"/getOrders",{loginId:huobang_loginId,recid:recid},function(data){
+					if(data != "wdl"){
+						if(data.length>0){
+							var orderDetail = JSON.stringify(data[0]);
+							mui.openWindow({
+								url:"../supplyofgoods/gaode.html",
+				                id: "gaode",
+								styles: {
+									popGesture: "none"
+								},
+								show: {
+									aniShow: "pop-in"
+								},
+								waiting: {
+									autoShow: false
+								},
+								extras:{
+									orderDetail:orderDetail,
+									luxian:"endplace"
+								}
+						    });
+						}else{
+							mui.toast("未知错误");
+						}
+					}else{
+						alertLoginMsg()
+						
+					}
+				})
+			
+				
+			
+			})
+			
+			//查询到客户路线
+			mui(".mui-content").on("tap",".startplace",function(){
+				var latitude,longitude;
+				if($("#locationtexts").attr("latitude")!=null){
+					latitude = $("#locationtexts").attr("latitude");
+					longitude = $("#locationtexts").attr("longitude");
+				}else{
+					mui.toast("定位未成功");
+				}
+				 
+				var recid = $(this).attr("recid");
+				
+				$.post(allurl+"/getOrders",{loginId:huobang_loginId,recid:recid},function(data){
+					if(data != "wdl"){
+						if(data.length>0){
+							var orderDetail = data[0];
+							orderDetail["endPlaceLongitude"] = ((orderDetail.startPlacelongitude)*1).toFixed(6);
+							orderDetail["endPlacelatitude"] = ((orderDetail.startPlacelatitude)*1).toFixed(6);
+							orderDetail["startPlacelongitude"] = (longitude*1).toFixed(6);
+							orderDetail["startPlacelatitude"] = (latitude*1).toFixed(6);
+							orderDetail["endplace"] = orderDetail.startingplace; 
+							orderDetail = JSON.stringify(orderDetail);
+							
+							mui.openWindow({ 
+								url:"../supplyofgoods/gaode.html",
+				                id: "gaode",
+								styles: {
+									popGesture: "none"
+								},
+								show: {
+									aniShow: "pop-in"
+								},
+								waiting: {
+									autoShow: false
+								},
+								extras:{
+									orderDetail:orderDetail,
+									luxian:"startplace"
+								}
+						    });
+						}else{
+							mui.toast("未知错误");
+						}
+					}else{
+						alertLoginMsg()
+						
+					}
+				})
+			
+				
+			
+			})
+			mui(".mui-content").on("tap",".ckmxdiv",function(){
+				$(this).parent().parent().next(".trianglediv").slideToggle().next(".viewdetails").slideToggle();
+				
+			})
+		})
+		;(function($) {
+			
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			var html2 = '<div class="orderdiv"><div class="hlinediv topdiv"><div class="leftpic"><span class="mui-icon iconfont icon-time"></span></div><div class="textdiv"><span>09月01日</span> <span style="margin-left:10px">13:00</span></div><div class="rightpic">已完成<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div></div></div><div class="hlinediv middlediv"><div class="middledivtop"><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext">青岛金石国际广场</div></div><div class="middledivtext">傲海星城</div></div><div class="hlinediv footdiv"><div class="middledivtop"><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext">傲海星城</div></div><div class="middledivtext">傲海星城<div class="textdivfoot">查看明细<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div></div></div></div></div><div class="trianglediv"><div class="triangle-downs"></div></div><div class="viewdetails"><div class="detailsleft"><div class="leftone"><div class="leftoneimg"></div></div><div class="lefttwo">王某某（货主）</div></div><div class="detailsright"><div class="rightone">啤酒/80吨/15米/锡纸</div><div class="righttwo">价格：￥<span class="rmbspan">9999.00</span>元</div><div class="rightthere"><span class="mui-icon mui-icon-phone phonespan"></span>拨打电话</div></div></div>';
+			var item1 = document.getElementById("haveinhand")
+			var item2 = document.getElementById('completed');
+			var item3 = document.getElementById('canceled');
+			document.getElementById('slider').addEventListener('slide', function(e) {
+				if (e.detail.slideNumber === 1) {
+					
+					if (item2.querySelector('.mui-loading')) {
+						item2.querySelector(".mui-scroll").innerHTML = "";
+						setOrderShowHtml("#completed",3,pagesize,currpage)
+					}
+				} else if (e.detail.slideNumber === 2) {
+					if (item3.querySelector('.mui-loading')) {
+						item3.querySelector(".mui-scroll").innerHTML = "";
+						setOrderShowHtml("#canceled",4,1000,1)
+					}
+				}else if(e.detail.slideNumber === 0){
+					//item1.querySelector(".mui-scroll").innerHTML = "";
+					//setOrderShowHtml("#haveinhand",2,1000,1)
+				}
+			});
+			
+			
+			$.ready(function() {
+				$('#mui-scroll2').pullToRefresh({
+					up: {  
+						offset: 5, 
+						contentinit: '',
+					    contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+					    contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+						callback: function() {
+							var self = this;
+							if(havePage){
+								currpage = currpage+1;
+								setOrderShowHtml("#completed",3,pagesize,currpage);
+								self.endPullUpToRefresh(false);
+							}else{
+								self.endPullUpToRefresh(true);
+							}
+								
+								
+						}
+					}
+				});
+			});
+				
+		})(mui);
+		// 通过定位模块获取位置信息
+function getGeocode(){
+	plus.geolocation.getCurrentPosition( geoInf, function ( e ) {
+		outSet( "获取定位位置信息失败："+e.message );
+	},{geocode:true});
+}
+function geoInf( position ) {
+	$("#locationtexts").attr("latitude",position.coords.latitude);//维度
+	$("#locationtexts").attr("longitude",position.coords.longitude);//经度
+	mui.ajax({
+		url: allurl+"/UpdateDrivers",
+		data:{
+				loginId:huobang_loginId,
+				lasttime:formatTime(new Date()),
+				lastaddress:position.address.province+position.address.city+position.address.district,
+				recid:loginuser["recid"]
+			},
+		type: "post", 
+		error: function(xhr, type, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+}
+function formatTime(_time){
+    var year = _time.getFullYear();
+    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
+    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
+    var hour = _time.getHours()<10 ? "0"+_time.getHours() : _time.getHours();
+    var minute = _time.getMinutes()<10 ? "0"+_time.getMinutes() : _time.getMinutes();
+    var miao = _time.getSeconds()<10 ? "0"+_time.getSeconds() : _time.getSeconds();
+    return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+miao;
+}
+
+//更新之后在指定tap栏加入指定html
+		function setAddOrder(thisid,orderstatus,recid){ 
+			
+			$.post(allurl+"/getOrders",{loginId:huobang_loginId,orderstatus:orderstatus,recid:recid},function(data){
+				if(data != "wdl"){
+
+					if(data.length > 0){
+						
+						var showHtml = "";
+						var buttonhtm = "";
+						
+						for(var i=0;i<data.length;i++){
+							var statusname = data[i]["statusname"];
+							var jiag = data[i]["bargaining"].toFixed(2);
+							var riqi = data[i]["appointmenttime"];
+							if(orderstatus == 3){
+								if(data[i]["actualprice"] != ""){
+									jiag = data[i]["actualprice"].toFixed(2);
+								}else{
+									jiag = data[i]["bargaining"].toFixed(2);
+								}
+								
+								riqi = data[i]["endtime"];
+							}
+							var imghtml='<div class="viewdetails"><div class="detailsleft"><div class="leftone"></div></div><div class="detailsright" ><div class="rightone">货物：'+data[i]["goodsname"]+'/'+data[i]["goodsnumber"]+'</div><div class="righttwo">价格：￥<span class="rmbspan">'+jiag+'</span>元</div><div class="rightthere"><span class="mui-icon mui-icon-phone phonespan"></span>'+data[i]["userphone"]+'</div></div></div>'
+							var thishtml =  '<div class="orderdiv"><div class="hlinediv topdiv"><div class="leftpic"><span class="mui-icon iconfont icon-time"></span></div><div class="textdiv"><span>'+riqi+'</span></div><div class="rightpic">'+statusname+'<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div>'+buttonhtm+'</div></div><div class="hlinediv middlediv"><div class="middledivtop"><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext">'+data[i]["startingplace"]+'</div></div><div class="middledivtext">'+data[i]["startingplace"]+'</div></div><div class="hlinediv footdiv"><div class="middledivtop"><div class="middledivtoppic"><span class="mui-icon iconfont icon-icon010"></span></div><div class="middledivtoptext">'+data[i]["endplace"]+'</div></div><div class="middledivtext">'+data[i]["endplace"]+'</div><div class="textdivfoot ckmxdiv">查看明细<div class="picspan"><span class="mui-icon mui-icon-arrowright"></span></div></div></div></div><div class="trianglediv"><div class="triangle-downs"></div></div>'+imghtml;
+						 showHtml = thishtml;
+						}
+						$(thisid).find(".mui-scroll").prepend(showHtml); 
+					}
+				}else{
+					alertLoginMsg() 
+					
+				}
+			})
+			
+		 
+		
+		}
+		//删除订单
+		function deleteOrder(recid){
+			$(".successtoorder").each(function(){
+				if($(this).attr("recid") == recid){
+					$(this).parent().parent().parent().next(".trianglediv").next(".viewdetails").remove();
+					$(this).parent().parent().parent().next(".trianglediv").remove();
+					$(this).parent().parent().parent().remove();
+					//$(this).parent().parent().parent().next(".trianglediv").remove().next(".viewdetails").remove();
+				}
+				
+			})
+		}
+	</script>
+</html>

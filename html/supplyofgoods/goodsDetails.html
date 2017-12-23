@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			body{
+				background: url(../../img/hb-bg.jpg);
+				width:100%;
+				height:100%;
+				background-size:cover;
+				font-size: 14px;
+			}
+			.headcount{
+				background-color:rgb(255,114,0)
+			} 
+			.viewdetails{
+				float: left;
+				width: 95%;
+				margin-left: 2.5%;
+				background-color: #FFFFFF;
+				margin-top: 2%;
+			}
+			.detailsleft{
+				float: left;
+				width: 40%;
+
+			}
+			.detailsright{
+				float: left;
+				width: 60%;
+				padding-left: 10px;
+			}
+			.detailsrights{
+				padding-left:5px;
+			}
+			.leftoneimg{
+				width: 80px;
+				border-radius: 50%;
+				background: url(../../img/dlym.jpg);
+				height: 80px;
+				background-size:cover;
+				margin-top: 5%;
+			}
+			.lefttwo{
+				margin-top: 5px;
+				font-size: 12px;
+				
+			}
+			.leftthere{
+				margin-top: 5px;
+				font-size: 7px;
+			}
+			.leftthere span{
+				color: #FF7200;
+			}
+			.detailsright div{
+				height: 40px;
+				line-height: 40px;
+			}
+			.rmbspan{
+				color:#FF7200;
+				font-weight: 500;
+			}
+			.phonespan{
+				color: #FF7200;
+			}
+			.jiage{
+				color: #FF7200;
+				text-align: center;
+				padding-top:30px;
+				font-size: 18px;
+				font-weight: 500;
+				border-left: 1px solid #EAE7EC;
+				height: 100%;
+				padding-bottom: 60px;
+				margin-top: 20%;
+			}
+			.detailsright .mui-icon{
+				color: #FF7200;
+			}
+			.detailsright div{
+				padding-left: 10px;
+			}
+			.viewtwo{
+				padding-top:10px ;
+			}
+			.viewtwo .detailsright div{
+				font-size: 10px;
+			}
+			.buttondiv{
+				float: left;
+				width: 100%;
+				height: 60px;
+				
+				margin-top:35px;
+			}
+			.buttonwebs{
+				width: 96%;
+				margin-left: 2%;
+				height: 50px;
+				background-color: rgb(255,144,0);
+				color: #FFFFFF;
+				font-size: 18px;
+				letter-spacing: 5px;
+				border: solid 0px rgb(168,230,254);
+				border-radius: 5px;
+				line-height: 41px;
+			}
+			#ckdtlx .buttonwebs{
+				background-color: #F0AD4E;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav headcount">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left diplaynone" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+				<h1 class="mui-title" style="color: #FFFFFF;">货源</h1>
+				<a class="mui-icon mui-icon-reload mui-pull-right diplaynone reloadgoodsDetails" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+		</header>
+		<div class="mui-content">
+			<div class="viewdetails">
+				
+				<div class="detailsright detailsrights">
+					<div class="rightzero">
+						<span class="mui-icon mui-icon-location"></span><span id="startingplace"></span>
+					</div>
+					<div class="rightone">
+						<span class="mui-icon mui-icon-flag"></span><span id="endplace"></span>
+						
+					</div>
+					<div class="righttwo">
+						<span class="mui-icon mui-icon-arrowthinright"></span><span id="goods"></span>
+					</div>
+					<div class="rightthere">
+						<span class="mui-icon mui-icon-phone phonespan"></span><span id="userphone"></span>
+					</div>
+				</div>
+				
+				<div class="detailsleft">
+					<div class="leftone">
+						<div class="leftoneimg">
+							
+						</div>
+					</div>
+					<div class="lefttwo">
+						<span id="username">王某某</span>（货主）
+					</div>
+					<div class="leftthere">
+						<span>已认证发布60条</span> 88人次查看
+						
+					</div>
+				</div>
+			</div>
+			<div class="viewdetails viewtwo">
+				
+				<div class="detailsright">
+					<span>详细信息：</span>
+					<div class="rightzero">
+						计划运输时间：<span id="appointmenttime"></span>
+					</div>
+					<div class="rightone">
+						货物名称：<span id="goodsname"></span>
+					</div>
+					<div class="righttwo">
+						货物数量：<span id="goodsnumber"></span>
+					</div>
+					<div class="rightthere">
+						货物描述：<span id="remarks"></span>
+					</div>
+				</div>
+				
+				<div class="detailsleft">
+					<div class="leftone jiage">
+						
+						￥<span id="bargainings"></span>元
+						<div style="color: #007AFF;position: fixed; margin-left: 15%;margin-top: 5%;" id="ckdtlx">
+							<span class="mui-icon mui-icon-map"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="buttondiv" id="acceptOrder">
+				<button class="buttonwebs">接单</button>
+			</div>
+			<!--
+            	
+            <div class="buttondiv" id="ckdtlx">
+				<button class="buttonwebs">查看路线</button>
+			</div>
+			-->
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript">
+			var orderrecid;
+			mui.init()
+			mui.plusReady(function(){
+				var goodsDetails = plus.webview.getWebviewById("goodsDetails");
+				var obj = goodsDetails.orderDetail;
+				setOrderHtml(JSON.parse(obj));
+			})
+			function setOrderHtml(data){
+				//console.log(JSON.stringify(data));
+				for(var i in data){
+					if(data[i].length>8){ 
+						$("#"+i).attr(i,data[i]);
+						$("#"+i).addClass("showSLH");
+						if(i.indexOf("appointmenttime")==-1 && i.indexOf("userphone")==-1){
+							data[i] = data[i].substring(0,8)+"...";
+						} 
+						
+					}
+					$("#"+i).text(data[i]);
+				}
+				orderrecid = data["recid"];
+				$("#bargainings").text(data["bargaining"].toFixed(2));
+				$("#goods").text(data["goodsname"]+"/"+data["goodsnumber"]);
+			}
+			$(function(){
+				mui(".mui-bar").on("tap",".reloadgoodsDetails",function(){
+					var recid = orderrecid;
+					$.post(allurl+"/getOrders",{loginId:huobang_loginId,orderstatus:1,recid:recid},function(data){
+						if(data != "wdl"){
+							
+							setOrderHtml(data[0]);
+						}else{
+							alertLoginMsg()
+							
+						}
+					})
+				})
+				mui(".mui-content").on("tap",".showSLH",function(){
+					var texts = $(this).attr($(this).attr("id"));
+					mui.alert(texts, '全名', function() {
+						
+					});
+				});
+				mui("#acceptOrder").on("tap",".buttonwebs",function(){
+					$.post(allurl+"/updateOrder",{loginId:huobang_loginId,orderstatus:2,recid:orderrecid,driverrecid:loginuser["recid"]},function(data){
+						if(data != "wdl"){
+							if(data == "success"){
+								var goodsDetails = plus.webview.getWebviewById("goodsDetails");
+								var objs = JSON.parse(goodsDetails.orderDetail);
+								mui.toast("已成功接到此单");
+								var supplyOfGoods = plus.webview.getWebviewById("supplyOfGoods");
+								mui.fire(supplyOfGoods,'refreshGoods',{
+								    recid:orderrecid
+								});
+								console.log(objs["loginname"]);
+								var msgobj = new Object();
+								msgobj["showmsg"] = orderrecid+"单已被司机"+loginuser["uname"]+"抢走";
+								msgobj["orderrecid"] = orderrecid;
+								$.post(allurl+"/toMpSend",{username:objs["loginname"],msg:JSON.stringify(msgobj),loginId:huobang_loginId,msgtype:0},function(data){
+									if(data == "wdl"){
+										alertLoginMsg()
+									}
+								});
+								mui.back();
+							}else{
+								mui.toast("此单已被抢走");
+							}
+						}else{
+							alertLoginMsg()
+							
+						}
+					})
+				});
+				
+				mui("body").on("tap","#ckdtlx",function(){
+					var goodsDetails = plus.webview.getWebviewById("goodsDetails");
+					var obj = goodsDetails.orderDetail;
+					mui.openWindow({
+						url:"gaode.html",
+		                id: "gaode",
+						styles: {
+							popGesture: "none"
+						},
+						show: {
+							aniShow: "pop-in"
+						},
+						waiting: {
+							autoShow: false
+						},
+						extras:{
+							orderDetail:obj
+						}
+					});
+				});
+			})
+		</script>
+	</body>
+
+</html>

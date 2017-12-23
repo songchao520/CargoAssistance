@@ -1,0 +1,249 @@
+<!--
+	作者：369126371@qq.com
+	时间：2017-09-25
+	描述：设置
+-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>我的</title>
+		<script type="text/javascript" src="../../js/systemConfig.js" ></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			body
+			{
+				background: url(../../img/hb-bg.jpg);
+				width:100%;
+				height:100%;
+				background-size:cover;
+				font-size: 14px;
+				
+			}
+
+			.headcount{
+				background-color:rgb(255,114,0)
+			} 
+			.withdrawals{
+				margin-top: 10px
+			}
+			.balance{
+				float: left;
+				width: 96%;
+				margin-left: 2%;
+				background-color: #FFFFFF;
+				border: 1px solid #CCCCCC;
+				margin-top: 5px;
+				
+			}
+			.minimum{
+				float: left;
+				width: 100%;
+				text-align: center;
+				padding-top: 10px;
+				color: #999;
+			}
+			.titlediv{
+				height: 80px;
+				line-height: 80px;
+				font-size: 14px;
+				float: left;
+				width: 80%;
+				margin-left: 10%;
+				margin-right: 10%;
+				color: #FF7200;
+			}
+			.jiagediv{
+				height: 30px;
+				font-size: 18px;
+				font-weight: 400;
+				float: left;
+				width: 80%;
+				margin-left: 10%;
+				margin-right: 10%;
+				border-bottom: 1px solid #CCCCCC;
+				line-height: 30px;
+			}
+			.divjiage{
+				float: left;
+				width: 10%;
+				border: 0px;
+			}
+			.jiagediv input{
+				float: left;
+				height: 29px;
+				width: 90%;
+				border: 0px;
+			}
+			.textdiv{
+				width: 80%;
+				margin-left: 10%;
+				margin-right: 10%;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				color: #CCCCCC;
+				float: left;
+			}
+			.buttondiv{
+				width: 100%;
+				height: 60px;
+				margin: 10% auto;
+				margin-top: 50px;
+				float: left;
+			}
+			.buttonwebs{
+				width: 90%;
+				margin-left: 5%;
+				height: 49px;
+				background-color: rgb(255,144,0);
+				color: #FFFFFF;
+				font-size: 18px;
+				letter-spacing: 5px;
+				border: solid 0px rgb(168,230,254);
+				border-radius: 5px;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav headcount">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left diplaynone" style="color: white;">
+					<span style="font-size: 15px;"></span>
+				</a>
+				<h1 class="mui-title" style="color: #FFFFFF;">提现</h1>
+				
+		</header>
+		<div class="contentdiv mui-content">
+			<div class="balance">
+				<div class="titlediv">
+					可提现余额：
+				</div>
+				<div class="jiagediv">
+					<div class="divjiage">￥</div><input type="text" id="transferamount" />
+				</div>
+				<div class="textdiv">
+					你当前可以提现的金额为<span id="jiagspan">0.00</span>元
+				</div>
+				<div class="titlediv">
+					支付宝账号：
+				</div>
+				<div class="jiagediv">
+					<input type="text" id="alipaynumber" />
+				</div>
+				<div class="textdiv">
+					若不填写，默认当前手机号，请务必核实准确。
+				</div>
+			</div>
+			<div class="minimum">
+				最低提前金额为0元,默认支付宝为本手机号。
+			</div>
+			<div class="buttondiv">
+				<button class="buttonwebs">立即提现</button>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-1.11.3.js" ></script>
+		<script type="text/javascript" src="../../js/layer_mobile/layer.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				swipeBack: false,
+				statusBarBackground: '#f7f7f7',
+				gestureConfig: {  
+					doubletap: true
+				}
+			});
+			mui.plusReady(function() {});
+			function setJiage(jiag){
+				$("#jiagspan").text(jiag.toFixed(2));
+			}
+			$(function(){
+				mui(".buttondiv").on("tap",".buttonwebs",function(){
+					var transferamount = $("#transferamount").val();
+					transferamount = parseFloat(transferamount);
+					var alipaynumber = loginuser["mobilephone"];
+					if($("#alipaynumber").val().trim() != ""){
+						alipaynumber = $("#alipaynumber").val().trim();
+					}
+					var jiagmax = parseFloat($("#jiagspan").text());
+					if(transferamount>jiagmax){
+						mui.toast("提现金额不足！");
+						return false;
+					}else{
+						mui.ajax({
+						
+							url: allurl+"/UpdateDriverMoney",
+							data:{
+									loginId:huobang_loginId,
+									driverrecid:loginuser["recid"],
+									UpdateNum:-transferamount
+								},
+							type: "post",
+							 
+							success: function(data) {
+								if(data == "wdl"){
+									alertLoginMsg()
+								}else if(data.toString() == "true"){
+									console.log(data)
+									mui.ajax({
+						
+										url: allurl+"/saveWithDrawals",
+										data:{
+												loginId:huobang_loginId,
+												driverrecid:loginuser["recid"],
+												transferamount:transferamount,
+												createtime:formatTime(new Date()),
+												transferboolean:0,
+												alipaynumber:alipaynumber
+											},
+										type: "post",
+										 
+										success: function(data) {
+											if(data == "wdl"){
+												alertLoginMsg()
+											}else if(data!=""){
+												mui.toast("提现成功")
+												var jiagz = jiagmax-transferamount;
+												var myWallet = plus.webview.getWebviewById('myWallet');
+												myWallet.evalJS('setJiage('+jiagz+')')
+												mui.back();
+											}
+											
+										},
+										error: function(xhr, type, errorThrown) { 
+											mui.toast("网络及其他原因");
+											
+											console.log(errorThrown);
+										}
+									
+									})
+								}
+							},
+							error: function(xhr, type, errorThrown) { 
+								mui.toast("网络及其他原因");
+								
+								console.log(errorThrown);
+							}
+						
+						})
+					}
+				})
+			});
+			//格式化时间
+			function formatTime(_time){
+			    var year = _time.getFullYear();
+			    var month = _time.getMonth()+1<10 ? "0"+(_time.getMonth()+1) : _time.getMonth()+1;
+			    var day = _time.getDate()<10 ? "0"+_time.getDate() : _time.getDate();
+			    var hour = _time.getHours()<10 ? "0"+_time.getHours() : _time.getHours();
+			    var minute = _time.getMinutes()<10 ? "0"+_time.getMinutes() : _time.getMinutes();
+			    var miao = _time.getSeconds()<10 ? "0"+_time.getSeconds() : _time.getSeconds();
+			    return year+"-"+month+"-"+day+" "+hour+":"+minute+":"+miao;
+			}
+		</script>
+	</body>
+
+</html>
